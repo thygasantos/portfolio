@@ -39,7 +39,7 @@ If you discover a bug or find yourself just wanting to jump on in and help make 
  
 https://match-three-blueprint.vercel.app/
 
-[![Match-Three](https://github-readme-stats.vercel.app/api/pin/?thygasantos=thygasantos&repo=Game-Match-Three-Blueprint)](https://github.com/thygasantos/Game-Match-Three-Blueprint)
+[![Match-Three](https://github-readme-stats.vercel.app/api/pin/?username=thygasantos&repo=Game-Match-Three-Blueprint)](https://github.com/thygasantos/Game-Match-Three-Blueprint)
 
 ##Licence
 MIT
