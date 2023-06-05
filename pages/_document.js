@@ -4,7 +4,7 @@ export default function Document() {
   const meta = {
     title: 'THYAGO SANTOS .',
     description: 'BEM VINDO AO MEU PORTFÓLIO , WEB BY THYAGO SANTOS .',
-    image: 'https://thyagosantos.vercel.app/18157066.png'
+    image: 'https://thyagosantos.vercel.app/18157066~2.png'
   }
 
   return (
