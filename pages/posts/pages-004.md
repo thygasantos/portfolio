@@ -4,7 +4,7 @@ title: ENCRYPTION BCRYPT TYPE HASH
 
 date: 2023/3/12
 
-description: Learn more about ENCRYPTION BCRYPT TYPE HASH.
+description: Learn more introduction about Bcrypt.
 
 tag: news
 
@@ -12,11 +12,107 @@ author: You
 
 ---
 
+Atualmente, o mercado de tecnologia possui uma gama de informações sensíveis e suscetíveis a qualquer usuário, que são essenciais para os negócios de uma organização.
 
-bcrypt é um método de criptografia do tipo hash para senhas baseado no Blowfish. Foi criado por Niels Provos e David Mazières e apresentado na conferência da USENIX em 1999 [1].
+Para evitar acessos não autorizados aos sistemas, utilizam-se alguns métodos de proteção de dados, como a criptografia de senhas, que dificulta o acesso a banco de dados.
 
-Este método apresenta uma segurança maior em relação à maioria dos outros métodos criptográficos que é a implementação da variável "custo" que é proporcional à quantidade de processamento necessária para criptografar a senha. O método é conhecido como hash adaptativo às melhorias futuras de hardware por ter esta característica, pois pode permanecer resistente à ataques do tipo "força-bruta" com o tempo usando custos maiores de processamento.
+    O que é criptografia e algoritmo de hashing?
 
-Ao contrário do método tradicional "crypt" (concebido em 1976), o algoritmo bcrypt não possui as restrições da época que eram pouco processamento e poucos espaço (bytes) para guardar o salt e o hash gerado da senha criptografada [2].
+A palavra criptografia origina-se do grego kryptós (“escondido”) e gráphein (“escrita”), que significa “tornar informações originais em informações ilegíveis”. Esse processo de “esconder a escrita” é realizado através da aplicação de algoritmos matemáticos que modificam qualquer bloco de dados em caracteres de comprimento fixos, transformando-os em hashes. O comprimento dos dados de entrada podem ter qualquer tamanho, porém, os dados de saída sempre terão valores de hash de mesmo comprimento. Um dos problemas encontrados no hash é a vulnerabilidade quanto aos ataques de dicionário (força bruta). Um ataque de dicionário nada mais é do que um ataque que tenta descobrir senhas de acesso ao tentar inúmeras combinatórias listadas em um banco de dados.
 
-O algoritmo bcrypt foi implementado em diversas linguagens como Python, Perl, Ruby, Java, C# e outras [3], além de possuir implementação também para a função "crypt" do UNIX. 
+    O que é BCrypt?
+
+O BCrypt foi desenvolvido por Niels Provos e David Mazières (1999) com o propósito de esconder senhas criadas pelos usuários em forma de texto “puro” em dados indecifráveis, utilizando o algoritmo hash. Essa é uma ferramenta segura para armazenar senhas no banco de dados e pode ser utilizada por qualquer linguagem (C, C ++, C #, Go, Java, JavaScript, Elixir, Perl, PHP, Python, Ruby e outros).
+
+O BCrypt possui dois critérios importantes:
+
+O salt é uma das vantagens do BCrypt, pois acrescenta aleatoriamente sequências de caracteres a senha, projetando resultados criptográficos complexos e aumentando a segurança contra ataques de força bruta, como o rainbow tables, ou seja, um hash sempre será diferente, mesmo que a senha seja igual.
+
+A outra vantagem do BCrypt é a possibilidade de alterar valores do saltRounds (relacionado a custos), onde quanto maior o número fornecido, mais lento será o processamento para calcular o hash associado a senha. Por padrão, o valor utilizado é 10, mas é importante salientar que um valor mais alto demandará mais tempo para encontrar as possíveis senhas nos casos de ataque de força bruta. Então esse valor deve ser pequeno o suficiente para não demorar na verificação no login do usuário.
+
+    Senha = 123456
+    Salt = 4137445196
+    Senha + Salt = 1413744519665432
+    Senha criptografada = 4564137445196321
+
+    Como funciona o processo de login?
+
+O cadastro e a autenticação de usuários baseados em hash funcionam da seguinte forma:
+
+1º O usuário cria um conta;
+
+2º A senha é criptografada e salva no banco de dados;
+
+3º Quando o usuário entrar com o login, o hash da senha digitada é verificado com o hash da senha original, ou seja, é feita uma comparação das senhas por meio do banco de dados;
+
+4º No caso dos hashes corresponderem, o usuário conseguirá permissão de acesso. Caso contrário, retornará dados de login incorretos;
+
+Esse processo ocorre sempre que o usuário pretende acessar a conta.
+
+    Criptografando com BCrypt no Node.JS
+
+Para instalar o BCrypt é só rodar o seguinte comando:
+
+npm install bcrypt
+
+Depois é só criar o arquivo app.js ou um nome qualquer contendo a extensão .js e acrescentar as informações abaixo:
+
+    Entendendo o código linha a linha
+
+Definindo o valor de caracteres:
+
+const saltRounds = 10
+
+Definindo a senha:
+
+const testPass = ‘123456’
+
+Criando o salt:
+
+const salt = bcrypt.genSaltSync(saltRounds)
+
+Criando o hash:
+
+const hash = bcrypt.hashSync(testPass, salt)
+
+Observação: se ao executar comando node app.js aparecer a seguinte mensagem de erro
+
+… é só instalar o pacote npm install bcryptjs. Finalizado a instalação, execute novamente o comando node app.js e você terá como resultado;
+
+$2a$08$4hzE36u4tMwJTxLR0yVcvOEG7ML9hN2v9s1OadVWtE5aYc4NhdhQ6
+
+Cada vez que executar o comando, você obterá um novo hash:
+
+node app.js$2a$08$lypO.Ri9nUV9s0YbSQvbn.TEpkRFGDJ7kKXc7807eDp/ucXDNn7/Snode app.js$2a$08$VjnacyE5mqm0MA3T2KnbhOb/WM3CFaLWpV..AyewSAS66PLMnJPsS
+
+    Conclusão
+
+Como podemos observar, as empresas perceberam a importância da segurança das informações e começaram a aplicar métodos e técnicas para proteger seus dados. Uma das técnicas conhecidas e muito utilizadas é a criptografia, que auxilia os desenvolvedores a criarem projetos de forma segura e controlada, evitando que usuários indesejados façam uso ou consigam ter acesso a informações privilegiadas. A segurança da informação é fundamental no dia a dia de qualquer empresa, independentemente do seu porte, faturamento ou atividade.
+
+    Referências
+
+https://en.wikipedia.org/wiki/Bcrypt
+
+http://www.linhadecodigo.com.br/artigo/3532/criptografando-senhas-usando-bcrypt-blowfish-no-php.aspx
+
+https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166
+
+https://medium.com/@vuongtran/using-node-js-bcrypt-module-to-hash-password-5343a2aa2342
+
+https://medium.com/@ldpdiscord/bcrypt-com-ruby-d640ac95761e
+
+https://medium.com/coinmonks/to-salt-or-not-to-salt-salting-is-not-the-only-answer-to-securing-passwords-cdab26bd20ad
+
+https://medium.com/@ldpdiscord/bcrypt-com-ruby-d640ac95761e
+
+http://www.devwilliam.com.br/php/hash-de-senhas-com-api-password-hashing-no-php
+
+https://medium.com/@paulrohan/how-bcryptjs-works-90ef4cb85bf4
+
+https://github.com/AnnaNee/reprograma-coding-dojo/blob/master/TreinadoresController.js
+
+https://medium.com/@mridu.sh92/a-quick-guide-for-authentication-using-bcrypt-on-express-nodejs-1d8791bb418f
+
+https://www.kaspersky.com.br/resource-center/definitions/encryption
+
+http://www.bosontreinamentos.com.br/seguranca/criptografia-tipos-simetrica-assimetrica-e-funcoes-de-hash-02/
