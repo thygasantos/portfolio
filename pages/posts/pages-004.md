@@ -89,30 +89,4 @@ node app.js$2a$08$lypO.Ri9nUV9s0YbSQvbn.TEpkRFGDJ7kKXc7807eDp/ucXDNn7/Snode app.
 
 Como podemos observar, as empresas perceberam a importância da segurança das informações e começaram a aplicar métodos e técnicas para proteger seus dados. Uma das técnicas conhecidas e muito utilizadas é a criptografia, que auxilia os desenvolvedores a criarem projetos de forma segura e controlada, evitando que usuários indesejados façam uso ou consigam ter acesso a informações privilegiadas. A segurança da informação é fundamental no dia a dia de qualquer empresa, independentemente do seu porte, faturamento ou atividade.
 
-    Referências
 
-https://en.wikipedia.org/wiki/Bcrypt
-
-http://www.linhadecodigo.com.br/artigo/3532/criptografando-senhas-usando-bcrypt-blowfish-no-php.aspx
-
-https://medium.com/py-bcrypt/encriptando-senhas-em-python-com-bcrypt-25e46b5c8166
-
-https://medium.com/@vuongtran/using-node-js-bcrypt-module-to-hash-password-5343a2aa2342
-
-https://medium.com/@ldpdiscord/bcrypt-com-ruby-d640ac95761e
-
-https://medium.com/coinmonks/to-salt-or-not-to-salt-salting-is-not-the-only-answer-to-securing-passwords-cdab26bd20ad
-
-https://medium.com/@ldpdiscord/bcrypt-com-ruby-d640ac95761e
-
-http://www.devwilliam.com.br/php/hash-de-senhas-com-api-password-hashing-no-php
-
-https://medium.com/@paulrohan/how-bcryptjs-works-90ef4cb85bf4
-
-https://github.com/AnnaNee/reprograma-coding-dojo/blob/master/TreinadoresController.js
-
-https://medium.com/@mridu.sh92/a-quick-guide-for-authentication-using-bcrypt-on-express-nodejs-1d8791bb418f
-
-https://www.kaspersky.com.br/resource-center/definitions/encryption
-
-http://www.bosontreinamentos.com.br/seguranca/criptografia-tipos-simetrica-assimetrica-e-funcoes-de-hash-02/
